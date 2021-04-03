@@ -1,0 +1,45 @@
+# End Drops Configuration
+# Version 1.0.0
+
+#######################################################################################################
+#                                        Shulker Shells Options                                       #
+#######################################################################################################
+# Note: If enabled there is a 100% chance shulkers will always drop two shulker shells.
+
+# Should End Drops drop double shulker shells?
+# Default: true
+double_shulker_shells: true
+
+#######################################################################################################
+#                                         Ender Dragon Options                                        #
+#######################################################################################################
+# Note: If enabled there is a 100% chance the items will drop every time the Ender Dragon is killed.
+
+# Should the Ender Dragon drop an egg?
+# Default: true
+drop_dragon_egg: true
+
+# Should the Ender Dragon drop a dragon head?
+# Default: true
+drop_dragon_head: true
+
+#######################################################################################################
+#                                            Elytra Options                                           #
+#######################################################################################################
+# Note: Elytra will only drop in one location (i.e. on the ground, in a chest or in killers inventory).
+
+# Location End Drops will drop the elytra at.
+# Default: 0, 65, 7
+drop_location: 0, 65, 7
+
+# Should the elytra drop on the ground?
+# Default: true
+drop_on_ground: true
+
+# Should the elytra be placed in the killers inventory?
+# Default: false
+give_to_player: false
+
+# Should the elytra be put in a chest?
+# Default: false
+place_in_chest: false

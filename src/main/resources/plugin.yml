@@ -1,0 +1,5 @@
+name: EndDrops
+main: world.lilliput.enddrops.EndDrops
+version: ${version?:unknown}
+author: Salvon
+api-version: 1.16

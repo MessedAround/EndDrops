@@ -1,2 +1,0 @@
-com/github/messedaround/enddrops/EndDrops.java
- com.github.messedaround.enddrops.EndDrops

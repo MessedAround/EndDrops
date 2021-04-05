@@ -1,2 +1,2 @@
-world/lilliput/enddrops/EndDrops.java
- world.lilliput.enddrops.EndDrops
+com/github/messedaround/enddrops/EndDrops.java
+ com.github.messedaround.enddrops.EndDrops

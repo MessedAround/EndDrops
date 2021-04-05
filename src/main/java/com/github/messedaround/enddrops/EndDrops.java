@@ -22,14 +22,11 @@ public class EndDrops extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(this, this);
-        getLogger().info("Enabled");
         checkConfig(this);
     }
 
     @Override
-    public void onDisable(){
-        getLogger().info("Disabled");
-    }
+    public void onDisable() {}
 
     // Check if data folder and config.yml exist
     public static void checkConfig(final Plugin plugin) {

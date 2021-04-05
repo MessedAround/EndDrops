@@ -1,5 +1,5 @@
 name: EndDrops
-main: world.lilliput.enddrops.EndDrops
+main: com.github.messedaround.enddrops.EndDrops
 version: 1.0.0
-author: Salvon
+author: MessedAround
 api-version: 1.16

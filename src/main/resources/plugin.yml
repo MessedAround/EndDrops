@@ -1,5 +1,5 @@
 name: EndDrops
-main: com.github.messedaround.enddrops.EndDrops
-version: ${version?:unknown}
+main: com.github.messedaround.enddrops.EndDropsMain
+version: ${projectVersion}
 author: MessedAround
 api-version: 1.16

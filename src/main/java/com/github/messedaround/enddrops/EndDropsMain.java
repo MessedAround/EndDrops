@@ -18,7 +18,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 @SuppressWarnings("ALL")
-public class EndDrops extends JavaPlugin implements Listener {
+public class EndDropsMain extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(this, this);
@@ -33,12 +33,12 @@ public class EndDrops extends JavaPlugin implements Listener {
         try {
             if (!plugin.getDataFolder().exists()) {
                 plugin.getDataFolder().mkdirs();
-                Bukkit.getLogger().info("[EndDrops] Could not find data folder. Created data folder.");
+                Bukkit.getLogger().info("[EndDropsMain] Could not find data folder. Created data folder.");
             }
             final File config = new File(plugin.getDataFolder(), "config.yml");
             if (!config.exists()) {
                 plugin.saveDefaultConfig();
-                Bukkit.getLogger().info("[EndDrops] Could not find config.yml. Created config.yml.");
+                Bukkit.getLogger().info("[EndDropsMain] Could not find config.yml. Created config.yml.");
             }
         }
         catch (Exception e) {

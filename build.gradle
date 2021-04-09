@@ -1,14 +1,78 @@
-plugins { id 'java' }
-
-group 'com.github.messedaround'
-version '1.0.0'
-
-repositories {
-    mavenCentral()
-    maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
-    maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+plugins {
+    id 'java-library'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+    id 'maven-publish'
+    id 'java'
 }
 
-dependencies { implementation 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT' }
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'maven-publish'
+    apply plugin: 'com.github.johnrengelman.shadow'
 
-processResources { filesMatching('plugin.yml') {expand(project.properties)} }
+    repositories {
+        mavenCentral()
+        jcenter()
+        mavenLocal()
+        maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    }
+
+    jar {
+        onlyIf { !sourceSets.main.allSource.files.isEmpty() }
+    }
+
+    compileJava {
+        onlyIf { !sourceSets.main.allSource.files.isEmpty() }
+    }
+
+    dependencies {
+        compileOnly 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT'
+    }
+
+    tasks.withType(JavaCompile) {
+        options.deprecation = true
+        options.encoding = 'UTF-8'
+    }
+
+    processResources {
+        filesNotMatching(["**/*.png", "**/models/**", "**/textures/**"]) {
+            expand projectVersion: project.version
+        }
+    }
+
+    compileJava.options.encoding = 'UTF-8'
+    compileJava.dependsOn clean
+
+    build.dependsOn shadowJar
+}
+
+tasks.withType(Jar) {
+    destinationDirectory = file("$rootDir/bin/")
+}
+
+clean.doLast {
+    file("${rootDir}/bin").deleteDir()
+}
+
+shadowJar {
+    archiveFileName = findProperty("plugin-name") + " " + findProperty("version") + ".jar"
+}
+
+jar {
+    archiveFileName = findProperty("plugin-name") + " " + findProperty("version") + ".jar"
+}
+
+group = 'com.github.messedaround'
+archivesBaseName = project.name
+version = findProperty("version")
+java.sourceCompatibility = JavaVersion.VERSION_1_8
+
+compileJava.options.encoding = 'UTF-8'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}

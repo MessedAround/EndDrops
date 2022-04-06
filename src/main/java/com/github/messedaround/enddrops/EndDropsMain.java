@@ -33,12 +33,12 @@ public class EndDropsMain extends JavaPlugin implements Listener {
         try {
             if (!plugin.getDataFolder().exists()) {
                 plugin.getDataFolder().mkdirs();
-                Bukkit.getLogger().info("[EndDropsMain] Could not find data folder. Created data folder.");
+                Bukkit.getLogger().info("[EndDrops] Could not find data folder. Created data folder.");
             }
             final File config = new File(plugin.getDataFolder(), "config.yml");
             if (!config.exists()) {
                 plugin.saveDefaultConfig();
-                Bukkit.getLogger().info("[EndDropsMain] Could not find config.yml. Created config.yml.");
+                Bukkit.getLogger().info("[EndDrops] Could not find config.yml. Created config.yml.");
             }
         }
         catch (Exception e) {
@@ -86,9 +86,9 @@ public class EndDropsMain extends JavaPlugin implements Listener {
                     final Location dropLocation = dragonKiller.getLocation();
                     final Item elytraDropped = dragonWorld.dropItem(dropLocation, new ItemStack(Material.ELYTRA, 1));
 
-                    dragonKiller.sendMessage("[End Drops] Inventory Full!");
-                    dragonKiller.sendMessage("[End Drops] Elytra Drop Coordinates -");
-                    dragonKiller.sendMessage("[End Drops] X: " + dropLocation.getBlockX() + " Y: " + dropLocation.getBlockY() + " Z: " + dropLocation.getBlockZ());
+                    dragonKiller.sendMessage("[EndDrops] Inventory Full!");
+                    dragonKiller.sendMessage("[EndDrops] Elytra Drop Coordinates -");
+                    dragonKiller.sendMessage("[EndDrops] X: " + dropLocation.getBlockX() + " Y: " + dropLocation.getBlockY() + " Z: " + dropLocation.getBlockZ());
 
                     if (this.getConfig().getBoolean("drop_dragon_egg", true)) {
                         final Item dragonEggDropped = dragonWorld.dropItem(dropLocation, dragonEgg);
@@ -120,7 +120,7 @@ public class EndDropsMain extends JavaPlugin implements Listener {
                         }
                     }
 
-                    dragonKiller.sendMessage("[End Drops] Elytra has been added to your inventory.");
+                    dragonKiller.sendMessage("[EndDrops] Elytra has been added to your inventory.");
                 }
             }
             else {
@@ -136,8 +136,8 @@ public class EndDropsMain extends JavaPlugin implements Listener {
                         final Item dragonHeadDropped = dragonWorld.dropItem(dropLocation, dragonHead);
                     }
 
-                    dragonKiller.sendMessage("[End Drops] Elytra Drop Coordinates -");
-                    dragonKiller.sendMessage("[End Drops] X: " + dropLocation.getBlockX() + " Y: " + dropLocation.getBlockY() + " Z: " + dropLocation.getBlockZ());
+                    dragonKiller.sendMessage("[EndDrops] Elytra Drop Coordinates -");
+                    dragonKiller.sendMessage("[EndDrops] X: " + dropLocation.getBlockX() + " Y: " + dropLocation.getBlockY() + " Z: " + dropLocation.getBlockZ());
                 }
                 else {
                     if (this.getConfig().getBoolean("place_in_chest", false)) {
@@ -165,8 +165,8 @@ public class EndDropsMain extends JavaPlugin implements Listener {
                                     final Item dragonHeadDropped = dragonWorld.dropItem(chestLocation.add(0, 1, 0), new ItemStack(Material.DRAGON_HEAD, 1));
                                 }
 
-                                dragonKiller.sendMessage("[End Drops] Drop Chest Full! Dropping on top of chest - ");
-                                dragonKiller.sendMessage("[End Drops] X: " + chestLocation.getBlockX() + " Y: " + chestLocation.getBlockY() + " Z: " + chestLocation.getBlockZ());
+                                dragonKiller.sendMessage("[EndDrops] Drop Chest Full! Dropping on top of chest - ");
+                                dragonKiller.sendMessage("[EndDrops] X: " + chestLocation.getBlockX() + " Y: " + chestLocation.getBlockY() + " Z: " + chestLocation.getBlockZ());
                             }
                             else {
                                 chestBlock.getInventory().setItem(chestBlock.getInventory().firstEmpty(), elytra);
@@ -189,8 +189,8 @@ public class EndDropsMain extends JavaPlugin implements Listener {
                                     }
                                 }
 
-                                dragonKiller.sendMessage("[End Drops] Drop Chest Coordinates -");
-                                dragonKiller.sendMessage("[End Drops] X: " + chestLocation.getBlockX() + " Y: " + chestLocation.getBlockY() + " Z: " + chestLocation.getBlockZ());
+                                dragonKiller.sendMessage("[EndDrops] Drop Chest Coordinates -");
+                                dragonKiller.sendMessage("[EndDrops] X: " + chestLocation.getBlockX() + " Y: " + chestLocation.getBlockY() + " Z: " + chestLocation.getBlockZ());
                             }
                         }
                         catch (Exception e) {
